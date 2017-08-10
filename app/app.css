@@ -1,0 +1,79 @@
+#timeSection {
+    width: 400px;
+    margin: 30px auto;
+}
+
+.time {
+    font-size: 42px;
+    text-align: center;
+}
+
+.todayDate {
+    font-size: 24px;
+    text-align: center;
+}
+
+#currencySection {
+    margin: 70px auto;
+    width: 848px;
+}
+
+#currencySection .selectedCurrency1, #currencySection .selectedCurrency2 {
+    width: 400px;
+    display: inline-block;
+}
+
+#currencySection .selectedCurrency1 input, #currencySection .result {
+    width: 180px;
+    height: 50px;
+    border: 1px solid lightgrey;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 50px;
+    font-size: 21px;
+}
+
+#currencySection .selectedCurrency1 select, #currencySection .selectedCurrency2 select {
+    width: 220px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+}
+
+#currencySection .glyphicon-transfer {
+    font-size: 22px;
+    position: relative;
+    top: 20px;
+    margin: 9px;
+    cursor: pointer;
+    color: #666;
+}
+
+#currencySection .glyphicon-transfer:hover, #currencySection .glyphicon-transfer:active {
+    color: #222;
+}
+
+#chart {
+    width: 840px;
+    height: 510px;
+    margin: 10px auto;
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+#chart .greenLabel{
+    background-color: #00af00;
+}
+
+#chart .label {
+    cursor: pointer;
+    padding: 3px 8px;
+    font-size: 12px;
+}
+
+#chart select {
+    position: relative;
+    top:1px;
+}

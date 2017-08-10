@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--<script src="../node_modules/chart.js/dist/Chart.js"></script>-->
+</head>
+<body ng-controller="mainController">
+    <show-time-directive></show-time-directive>
+    <div id="currencySection">
+      <div class="selectedCurrency1">
+          <select ng-model="selectedCurID1">
+             <option ng-repeat="i in allTodayExchangeRatesArr" value="{{i.Cur_ID}}">{{i.Cur_Abbreviation}} {{i.Cur_Scale}} {{i.Cur_Name}}</option>
+          </select>
+          <input ng-model="value">
+      </div>
+        <span ng-click="changeCur()" class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+      <div class="selectedCurrency2">
+          <select ng-model="selectedCurID2">
+              <option ng-repeat="i in allTodayExchangeRatesArr" value="{{i.Cur_ID}}">{{i.Cur_Abbreviation}} {{i.Cur_Scale}} {{i.Cur_Name}}</option>
+          </select>
+          <div class="result">
+          {{result()}}
+          </div>
+      </div>
+    </div>
+    <div id="chart">
+        <canvas id="line-chart" width="800" height="450"></canvas>
+        <select ng-model="selectedCurChart" ng-change="showStat()">
+            <option ng-repeat="i in allTodayExchangeRatesArr track by $index" value="{{i.Cur_ID}}">{{i.Cur_Abbreviation}} {{i.Cur_Scale}} {{i.Cur_Name}}</option>
+        </select>
+        <span  ng-click="showStat(getWeekAgoDate())" ng-class="{'greenLabel':flag_greenLabelWeek}" class="label label-default">За неделю</span>
+        <span  ng-click="showStat(getMonthAgoDate())" ng-class="{'greenLabel':flag_greenLabelMonth}" class="label label-default">За месяц</span>
+    </div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+  <script src="Services/Services/mainService.js"></script>
+  <script src="Controllers/mainController.js"></script>
+  <script src="Directives/showTimeDirective.js"></script>
+</body>
+</html>
